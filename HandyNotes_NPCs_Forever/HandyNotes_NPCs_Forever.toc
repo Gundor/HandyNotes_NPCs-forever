@@ -1,0 +1,33 @@
+## Interface: 16001
+## Title: HandyNotes: NPCs (Forever)
+## Title-frFR: HandyNotes : PNJ (Forever)
+## Notes: Shows vendors and service NPCs (repair, bank, flight masters...) on the world map and minimap through HandyNotes. Data from Wowhead Forever.
+## Notes-frFR: Affiche les marchands et PNJ de service (réparation, banque, maîtres de vol...) sur la carte et la minicarte via HandyNotes. Données Wowhead Forever.
+## Title-deDE: HandyNotes: NPCs (Forever)
+## Notes-deDE: Zeigt Händler und Dienst-NPCs (Reparatur, Bank, Flugmeister …) auf Weltkarte und Minikarte über HandyNotes an. Daten von Wowhead Forever.
+## Title-esES: HandyNotes: NPCs (Forever)
+## Notes-esES: Muestra vendedores y PNJ de servicio (reparación, banco, maestros de vuelo…) en el mapa y el minimapa mediante HandyNotes. Datos de Wowhead Forever.
+## Title-esMX: HandyNotes: NPCs (Forever)
+## Notes-esMX: Muestra vendedores y PNJ de servicio (reparación, banco, maestros de vuelo…) en el mapa y el minimapa mediante HandyNotes. Datos de Wowhead Forever.
+## Title-itIT: HandyNotes: NPCs (Forever)
+## Notes-itIT: Mostra venditori e PNG di servizio (riparazioni, banca, maestri del volo…) sulla mappa e sulla minimappa tramite HandyNotes. Dati da Wowhead Forever.
+## Title-ruRU: HandyNotes: NPCs (Forever)
+## Notes-ruRU: Показывает торговцев и служебных НПС (ремонт, банк, распорядители полётов…) на карте и миникарте через HandyNotes. Данные Wowhead Forever.
+## Title-zhCN: HandyNotes：NPC（Forever）
+## Notes-zhCN: 通过 HandyNotes 在地图和小地图上显示商人和服务类 NPC（修理、银行、飞行管理员等）。数据来自 Wowhead Forever。
+## Title-zhTW: HandyNotes：NPC（Forever）
+## Notes-zhTW: 透過 HandyNotes 在地圖和小地圖上顯示商人與服務類 NPC（修理、銀行、飛行管理員等）。資料來自 Wowhead Forever。
+## Title-ptBR: HandyNotes: NPCs (Forever)
+## Notes-ptBR: Mostra vendedores e NPCs de serviço (reparo, banco, mestres de voo…) no mapa e no minimapa via HandyNotes. Dados do Wowhead Forever.
+## Title-koKR: HandyNotes: NPC (Forever)
+## Notes-koKR: HandyNotes를 통해 지도와 미니맵에 상인과 서비스 NPC(수리, 은행, 비행 조련사 등)를 표시합니다. 데이터: Wowhead Forever.
+## Author: Gundor
+## Version: 0.4.0
+## RequiredDeps: HandyNotes
+## OptionalDeps: TomTom
+## SavedVariables: HandyNotes_NPCsForeverDB
+## X-Category: Map
+## IconTexture: Interface\AddOns\HandyNotes_NPCs_Forever\media\logo
+
+Data.lua
+Core.lua

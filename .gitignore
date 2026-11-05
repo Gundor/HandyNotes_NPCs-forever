@@ -1,0 +1,7 @@
+# Tout est ignoré, sauf ce qui est autorisé explicitement
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/HandyNotes_NPCs_Forever/
+__pycache__/
