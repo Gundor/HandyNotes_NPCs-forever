@@ -598,6 +598,7 @@ local PROFESSION_SPELLS = { -- sort de rang 1 dont le nom est celui du métier
 	Alchemy = 2259, Blacksmithing = 2018, Enchanting = 7411, Engineering = 4036, Leatherworking = 2108,
 	Mining = 2575, Skinning = 8613, Tailoring = 3908, Cooking = 2550, ["First Aid"] = 3273, Fishing = 7620,
 }
+local CLIENT_FIRST = { Mounts = "MOUNTS", Pets = "PETS" } -- libellés pris dans le client quand ils existent
 local VENDOR_GLOBALS = { Armor = "ARMOR", Weapons = "WEAPON", Mounts = "MOUNTS", Pets = "PETS" }
 local subCache = {}
 
@@ -619,6 +620,8 @@ local function subLabel(cat, sub)
 	elseif sub == "Alliance" and FACTION_ALLIANCE then label = FACTION_ALLIANCE
 	elseif sub == "Horde" and FACTION_HORDE then label = FACTION_HORDE
 	elseif PROFESSION_SPELLS[sub] and spellName(PROFESSION_SPELLS[sub]) then label = spellName(PROFESSION_SPELLS[sub])
+	elseif CLIENT_FIRST[sub] and type(_G[CLIENT_FIRST[sub]]) == "string" and _G[CLIENT_FIRST[sub]] ~= "" then
+		label = _G[CLIENT_FIRST[sub]]
 	elseif SUBS_L and SUBS_L[sub] then label = SUBS_L[sub]
 	elseif VENDOR_GLOBALS[sub] and type(_G[VENDOR_GLOBALS[sub]]) == "string" then label = _G[VENDOR_GLOBALS[sub]]
 	end
