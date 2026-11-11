@@ -1,6 +1,6 @@
 -- FICHIER GÉNÉRÉ par tools/export_lua.py — ne pas modifier à la main.
 local _, ns = ...
-ns.generated = "2026-11-11T11:54:43"
+ns.generated = "2026-11-11T12:01:30"
 ns.nodes = {
 [1411] = {
 	[40506780] = {name="Rarc", id=3161, c={"repair","vendor"}, s={vendor="Armor"}, f="H", l1=10, l2=10},
