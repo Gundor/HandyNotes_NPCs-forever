@@ -633,23 +633,23 @@ end
 -- Nom du PNJ dans la langue du client : interrogation d'une infobulle cachée (expérimental, repli sur l'anglais).
 local scanTip
 local nameCache = {}
-local function localizedName(node)
-	local cached = nameCache[node.id]
+local function localizedName(id, name)
+	local cached = nameCache[id]
 	if cached then return cached end
 	if not scanTip then
 		scanTip = CreateFrame("GameTooltip", "HNNPCsForeverScan", UIParent, "GameTooltipTemplate")
 	end
 	scanTip:SetOwner(UIParent, "ANCHOR_NONE")
-	local ok = pcall(scanTip.SetHyperlink, scanTip, "unit:Creature-0-0-0-0-" .. node.id .. "-0000000000")
+	local ok = pcall(scanTip.SetHyperlink, scanTip, "unit:Creature-0-0-0-0-" .. id .. "-0000000000")
 	local fs = _G["HNNPCsForeverScanTextLeft1"]
 	local text = ok and fs and fs:GetText()
 	scanTip:Hide()
 	if type(text) == "string" and text ~= "" and text ~= _G.UNKNOWN and text ~= _G.UNKNOWNOBJECT
 		and text ~= _G.RETRIEVING_DATA then
-		nameCache[node.id] = text
+		nameCache[id] = text
 		return text
 	end
-	return node.name -- pas encore connu du client : on réessaiera au prochain survol
+	return name -- pas encore connu du client : on réessaiera au prochain survol
 end
 
 ---------------------------------------------------------------------------
@@ -858,13 +858,17 @@ function handler:OnEnter(uiMapId, coord)
 		tooltip:SetOwner(self, "ANCHOR_RIGHT")
 	end
 
-	tooltip:AddLine((db.profile.localNames and localizedName(node)) or node.name)
+	local function nm(id, name) return (db.profile.localNames and localizedName(id, name)) or name end
+	tooltip:AddLine(node.o and L[node.c[1]] or nm(node.id, node.name)) -- o = objet (boîte aux lettres) : nom du type, traduit par le jeu
+	if node.more then -- plusieurs PNJ de même rôle regroupés en une icône
+		for _, m in ipairs(node.more) do tooltip:AddLine(nm(m[2], m[1]), 0.9, 0.9, 0.9) end
+	end
 	local labels = {}
 	for _, c in ipairs(node.c) do
 		local sub = node.s and node.s[c]
 		labels[#labels + 1] = L[c] .. ((sub and c ~= "flightmaster") and (" (" .. subLabel(c, sub) .. ")") or "")
 	end
-	tooltip:AddLine(table.concat(labels, ", "), 1, 1, 1)
+	if not node.o then tooltip:AddLine(table.concat(labels, ", "), 1, 1, 1) end
 
 	if node.l1 then
 		local lvl = (node.l2 and node.l2 ~= node.l1) and (node.l1 .. "-" .. node.l2) or tostring(node.l1)
@@ -876,7 +880,7 @@ function handler:OnEnter(uiMapId, coord)
 		tooltip:AddLine(L.HORDE, 1, 0.2, 0.2)
 	end
 	if node.new then tooltip:AddLine(L.NEW, 0.2, 1, 0.2) end
-	tooltip:AddLine("NPC " .. node.id, 0.5, 0.5, 0.5)
+	if not node.more and node.id ~= 0 then tooltip:AddLine((node.o and "Object " or "NPC ") .. node.id, 0.5, 0.5, 0.5) end
 	tooltip:AddLine(L.CLICK, 0.5, 0.8, 0.5)
 	tooltip:Show()
 end
@@ -893,13 +897,13 @@ function handler:OnClick(button, down, uiMapId, coord)
 	local x, y = HandyNotes:getXY(coord) -- 0..1
 
 	if TomTom and TomTom.AddWaypoint then
-		TomTom:AddWaypoint(uiMapId, x, y, { title = node.name, from = PLUGIN, persistent = false, minimap = true, world = true })
+		TomTom:AddWaypoint(uiMapId, x, y, { title = (node.o and L[node.c[1]] or node.name) .. (node.more and (" (+" .. #node.more .. ")") or ""), from = PLUGIN, persistent = false, minimap = true, world = true })
 	elseif C_Map and C_Map.SetUserWaypoint and UiMapPoint and UiMapPoint.CreateFromCoordinates then
 		C_Map.SetUserWaypoint(UiMapPoint.CreateFromCoordinates(uiMapId, x, y))
 	else
 		return
 	end
-	print("|cff33ff99" .. PLUGIN .. "|r " .. L.WAYPOINT:format(node.name))
+	print("|cff33ff99" .. PLUGIN .. "|r " .. L.WAYPOINT:format(node.o and L[node.c[1]] or node.name))
 end
 
 ---------------------------------------------------------------------------
