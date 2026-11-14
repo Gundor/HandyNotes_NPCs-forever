@@ -22,7 +22,7 @@
 ## Title-koKR: HandyNotes: NPC (Forever)
 ## Notes-koKR: HandyNotes를 통해 지도와 미니맵에 상인과 서비스 NPC(수리, 은행, 비행 조련사 등)를 표시합니다. 데이터: Wowhead Forever.
 ## Author: Gundor
-## Version: 0.6.0
+## Version: 0.7.0
 ## RequiredDeps: HandyNotes
 ## OptionalDeps: TomTom
 ## SavedVariables: HandyNotes_NPCsForeverDB
