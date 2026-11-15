@@ -1,6 +1,6 @@
 -- FICHIER GÉNÉRÉ par tools/export_lua.py — ne pas modifier à la main.
 local _, ns = ...
-ns.generated = "2026-11-14T07:37:27"
+ns.generated = "2026-11-15T19:34:38"
 ns.nodes = {
 [1411] = {
 	[40506780] = {name="Rarc", id=3161, c={"repair","vendor"}, s={vendor="Armor"}, f="H", l1=10, l2=10},
@@ -1308,6 +1308,7 @@ ns.nodes = {
 	[42276413] = {name="Sylista", id=9977, c={"stablemaster"}, f="A", l1=30, l2=30},
 	[42607680] = {name="Darian Singh", id=1304, c={"vendor"}, s={vendor="Fireworks & Holiday"}, f="A", l1=30, l2=30},
 	[44808620] = {name="Charys Yserian", id=1307, c={"vendor"}, s={vendor="Reagents & Potions"}, f="A", l1=50, l2=50},
+	[45645415] = {name="Mailbox", id=0, c={"mailbox"}, o=true},
 	[47608220] = {name="Owen Vaughn", id=1308, c={"vendor"}, s={vendor="Reagents & Potions"}, f="A", l1=30, l2=30},
 	[48008450] = {name="Fyrenz Vishonar", id=270581, c={"transmogrifier"}, f="A", l1=55, l2=55, new=true},
 	[48205480] = {name="Gregory Ardus", id=1348, c={"repair","vendor"}, s={vendor="Weapons"}, f="A", l1=30, l2=30},
