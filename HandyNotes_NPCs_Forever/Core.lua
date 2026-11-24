@@ -672,7 +672,7 @@ local ICONS = {
 	weaponmaster = "Interface\\Icons\\INV_Sword_27",
 	spirithealer = "Interface\\Icons\\Spell_Holy_GuardianSpirit",
 	mounttrainer = "Interface\\Icons\\Ability_Mount_RidingHorse",
-	mailbox      = "Interface\\Icons\\INV_Letter_15",
+	mailbox      = "Interface\\AddOns\\HandyNotes_NPCs_Forever\\media\\mailbox",
 	transmogrifier = "Interface\\Icons\\INV_Chest_Cloth_17",
 	rare         = "Interface\\Icons\\INV_Misc_Bone_HumanSkull_01",
 }
